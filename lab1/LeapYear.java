@@ -4,12 +4,12 @@
 public class LeapYear {
 
 public static boolean isLeapYear(int year){
- if ((year%400==0) | ((year%4==0) & (year%100!=0))){
-	System.out.println(year + " is a leap year.\n");
-}
-else {
-	System.out.println(year + " is not a leap year.\n");
-}
+	if ((year%400 == 0) | ((year%4 == 0) & (year%100 != 0))){
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
     /** Calls isLeapYear to print correct statement.
