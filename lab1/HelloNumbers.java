@@ -4,10 +4,10 @@ public class HelloNumbers {
 		int y = 0;
 		while (x < 10) {
 			y = y + x;
-			System.out.print(y);
+			System.out.print(y + " ");
 			x = x + 1;
 		}
-		System.out.println(y);
+		System.out.println(y + " ");
 	}
 }
 
