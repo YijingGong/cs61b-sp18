@@ -7,7 +7,6 @@ public class HelloNumbers {
 			System.out.print(y + " ");
 			x = x + 1;
 		}
-		System.out.println(y + " ");
 	}
 }
 
