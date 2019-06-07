@@ -11,7 +11,7 @@ public class NBody{
 		In in= new In (filename);
 		int number_of_planet= in.readInt();
 		double radius = in.readDouble();
-		Planet [] Planetarray = new Planet [number_of_planet];
+		Planet [] planets = new Planet [number_of_planet];
 			
 		while (!in.isEmpty()) {
 			 /*double xxPos = Double.parseDouble(in.readString());
@@ -29,11 +29,11 @@ public class NBody{
 			String imgFileName = in.readString();
 
 			Planet p = new Planet(xxPos, yyPos, xxVel, yyVel, mass, imgFileName);
-			for (int i = 0; i < Planetarray.length; i++) {
-    			Planetarray[i] = p;
+			for (int i = 0; i < planets.length; i++) {
+    			planets[i] = p;
 			}
 		}
-		return Planetarray;
+		return planets;
 	}
 	
 	public static void main(String[] args){
@@ -41,7 +41,7 @@ public class NBody{
 		double dt =Double.parseDouble(args[1]);
 		String filename=args[2];
 		double radius=readRadius(filename);
-		Planet [] Planetarray =readPlanets(filename);
+		Planet [] planets =readPlanets(filename);
 
 		//stdDraw- set scale and background img
 		StdDraw.enableDoubleBuffering();
@@ -52,19 +52,19 @@ public class NBody{
 
 		double time=0;
 		for (int t = 0; t <= T; t += dt) {
-			double [] xForces = new double [Planetarray.length];
-			double [] yForces = new double [Planetarray.length];
-			for (int i = 0; i < Planetarray.length; i++) {
-				xForces[i]=Planetarray[i].calcNetForceExertedByX(Planetarray);
+			double [] xForces = new double [planets.length];
+			double [] yForces = new double [planets.length];
+			for (int i = 0; i < planets.length; i++) {
+				xForces[i]=planets[i].calcNetForceExertedByX(planets);
 			}
-			for (int i = 0; i < Planetarray.length; i++) {
-				yForces[i]=Planetarray[i].calcNetForceExertedByY(Planetarray);
+			for (int i = 0; i < planets.length; i++) {
+				yForces[i]=planets[i].calcNetForceExertedByY(planets);
 			}
-			for (int i = 0; i < Planetarray.length; i++) {
-				Planetarray[i].update(dt,xForces[i],yForces[i]);
+			for (int i = 0; i < planets.length; i++) {
+				planets[i].update(dt,xForces[i],yForces[i]);
 			}
-			for (int i=0; i< Planetarray.length; i++){
-			Planetarray[i].draw();
+			for (int i=0; i< planets.length; i++){
+			planets[i].draw();
 			}
 		}
 
